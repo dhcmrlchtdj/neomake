@@ -5,8 +5,9 @@ function! neomake#makers#ft#rust#EnabledMakers()
 endfunction
 
 function! neomake#makers#ft#rust#rustc()
+    " https://github.com/rust-lang/rust.vim/issues/31847
     return {
-        \ 'args': ['-Z', 'parse-only'],
+        \ 'args': ['-Z', 'no-trans'],
         \ 'errorformat':
             \ '%-G%f:%s:,' .
             \ '%f:%l:%c: %trror: %m,' .
